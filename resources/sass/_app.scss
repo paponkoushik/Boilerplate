@@ -1,0 +1,254 @@
+@import "core/variables";
+@import "core/theme-colors";
+
+// Sample page calendar view
+
+.calendar-view .fc-timeGrid-view{
+  .fc-event {
+    margin-right: .5rem;
+  }
+}
+
+.calendar-view .fc-timegrid .fc-timegrid-slot {
+  height: 150px !important;
+}
+
+.custom-modal {
+  background: var(--default-card-bg) !important;
+  position: absolute;
+  border-radius: 5px;
+  width: 510px;
+  padding: 2rem;
+  top: 50%;
+  left: 50%;
+  z-index: 1200;
+  font-size: 12px;
+  transition-duration: 300ms;
+}
+
+// Grid/List view
+.employee-preview-card {
+  .dropdown {
+    &.options-dropdown {
+      right: $default-card-padding;
+
+      .btn-option {
+        width: 35px;
+        height: 15px;
+        border-radius: 0.5rem;
+        background-color: var(--icon-hover-bg);
+
+        svg {
+          width: 18px;
+          height: 18px;
+        }
+      }
+    }
+  }
+}
+
+// Social link
+.icon-box {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  background-color: var(--base-color);
+
+  svg {
+    width: 22px;
+    height: 22px;
+    color: $brand-color;
+  }
+
+  i {
+    font-size: 22px;
+    color: $brand-color;
+  }
+}
+
+
+// Kanban View
+:root {
+  --kanban-scrollbar-track: #{lighten($sidebar-scrollbar-thumb-color, 55%)};
+  --kanban-scrollbar-thumb: #{lighten($sidebar-scrollbar-thumb-color, 45%)};
+}
+
+[theme="dark"] {
+  --kanban-scrollbar-track: #{lighten($sidebar-scrollbar-thumb-color, 10%)};
+  --kanban-scrollbar-thumb: #{darken($sidebar-scrollbar-thumb-color, 5%)};
+}
+
+// Step input selector
+.step-input-selector {
+  .step-input {
+    width: 100%;
+    height: 40px;
+    background-color: var(--base-color);
+
+    &:hover {
+      color: $white;
+      background-color: $brand-color;
+    }
+
+    &.selected {
+      color: $white;
+      background-color: $brand-color;
+    }
+
+    &:first-child {
+      border-radius: $default-radius 0 0 $default-radius;
+    }
+
+    &:last-child {
+      border-radius: 0 $default-radius $default-radius 0;
+    }
+  }
+}
+
+// Tags add-edit component
+.tags-organizer {
+  .btn-remove-tag {
+    width: 13px;
+    height: 13px;
+    color: #313131;
+    margin-left: 15px;
+    font-size: inherit;
+    border-radius: 50%;
+    background-color: #f7f7f747;
+    cursor: pointer;;
+  }
+}
+
+// Kanban view design
+.kanban-wrapper {
+  display: flex;
+  padding: 0 0.5rem 0.5rem 0;
+
+  &.custom-scrollbar {
+    &::-webkit-scrollbar {
+      height: 7px !important;
+    }
+  }
+
+  .kanban-column {
+    width: 300px;
+    min-width: 300px;
+    background-color: var(--base-color);
+    margin-right: .5rem;
+
+    &:last-child {
+      padding-right: 0;
+    }
+
+    .kanban-draggable-column {
+      overflow-y: auto;
+      height: 600px;
+      //max-height: 600px;
+      //min-height: 300px;
+      padding: 0 5px;
+
+      .draggable-item {
+        cursor: move;
+        .card-body{
+          padding: 1rem !important;
+        }
+      }
+
+      &::-webkit-scrollbar {
+        width: $default-scrollbar-width;
+        height: $default-scrollbar-width;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: var(--kanban-scrollbar-track);
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: var(--kanban-scrollbar-thumb);
+      }
+    }
+
+    .draggable-action-wrapper {
+      padding: 5px;
+    }
+  }
+
+  .sortable-ghost {
+    opacity: 0.1 !important;
+  }
+
+  //.sortable-chosen {
+  //    opacity: 0.1;
+  //    background-color: lighten($brand-color, 10%) !important;
+  //}
+
+  .stage-header {
+    border-bottom: .5rem solid var(--default-card-bg);
+    .stage-information {
+      span {
+        display: flex;
+        font-size: 90%;
+        align-items: center;
+        margin-right: 12px;
+
+        &:before {
+          content: '';
+          width: 4px;
+          height: 4px;
+          border-radius: 50%;
+          margin-right: 4px;
+          display: inline-block;
+          background-color: $text-muted;
+        }
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  .btn-stage-action {
+    width: 100%;
+    font-size: 90%;
+    display: flex;
+    color: $text-muted;
+    align-items: center;
+    justify-content: center;
+    padding: 0.2rem 1.2rem;
+    background-color: var(--default-card-bg);
+    transition: color $default-transition-duration $action-transition-timing-function,
+    background-color $default-transition-duration $action-transition-timing-function;
+
+    svg {
+      width: 14px;
+      height: 14px;
+      stroke-width: 1.5;
+    }
+
+    &:hover {
+      color: $white;
+      background-color: $brand-color;
+    }
+  }
+}
+
+.add-new-stage {
+  padding: 0 0 .5rem 0;
+  .wrapper {
+    width: 250px;
+    min-width: 250px;
+    background-color: var(--base-color);
+  }
+}
+
+// Form - inputs
+.default-file{
+  .text-muted{
+    display: block;
+    margin-top: 8px;
+  }
+}

@@ -1,0 +1,51 @@
+[dir="rtl"] {
+  // Core override
+  small{
+    &.text-danger{
+      text-align: start !important;
+      display: block;
+    }
+  }
+
+  // Breadcrumb
+  .breadcrumb-side-button {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  // Form and Fields
+  .action-buttons {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  // Dashboard
+  .data-group-item {
+    .square {
+      margin-left: 5px;
+    }
+
+    .value {
+      margin-right: 5px;
+    }
+  }
+
+  // UI Features
+  .ui-elements-container {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  // Sample page
+  .dropdown {
+    &.options-dropdown {
+      .dropdown-item {
+        text-align: start;
+      }
+    }
+  }
+
+  .event-modal-footer {
+    justify-content: flex-start !important;
+  }
+}

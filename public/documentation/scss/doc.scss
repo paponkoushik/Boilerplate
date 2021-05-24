@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+
+.custom-scrollbar {
+    &::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: #e3e3e3;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #cfcfcf;
+        border-radius: 5px;
+    }
+}
+
+body {
+    padding-top: 130px;
+    font-family: 'Poppins', sans-serif;
+}
+
+header {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    color: #ffffff;
+    position: fixed;
+    top: 0;
+    min-height: 130px;
+    background-size: cover !important;
+    background: url(../images/banner-bg.png) no-repeat;
+}
+
+.nav.flex-column .sub-list-link-group {
+    list-style: none;
+    padding-left: 30px;
+}
+
+.nav.flex-column .sub-list-link-group a {
+    display: block;
+    padding: 2px;
+    text-decoration: none;
+    color: inherit;
+    font-size: 14px;
+}
+
+.doc-left-menus-panel {
+    overflow-y: auto;
+    position: -webkit-sticky;
+    position: fixed;
+    background: none;
+    width: 15em;
+    max-height: calc(100vh - 130px);
+}
+
+.main-content {
+    padding: 16px;
+    margin-left: 15em;
+}

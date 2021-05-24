@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Document - Readykit</title>
+    <link rel="shortcut icon" href="images/core.png"/>
+    <link rel="apple-touch-icon" href="images/core.png"/>
+    <link rel="apple-touch-icon-precomposed" href="images/core.png"/>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="css/animate.css">
+
+    <!--Import font from google -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i" rel="stylesheet">
+
+    <!--Code highlight-->
+    <link type="text/css" rel="stylesheet" href="css/shCore.css"/>
+    <link type="text/css" rel="stylesheet" href="css/shThemeDefault.css"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/doc.css">
+</head>
+
+<body class="custom-scrollbar">
+<div class="d-none" id="top"></div>
+<header>
+    <div>
+        <img src="images/logo.png" class="img-fluid mx-auto" width="300" alt="">
+    </div>
+</header>
+<main class="container">
+    <div class="d-flex">
+        <aside>
+            <div class="doc-left-menus-panel custom-scrollbar">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link js-page-scrolling" href="#introduction">Introduction</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-page-scrolling" href="#Configuration">Configuration</a>
+                        <ul class="sub-list-link-group">
+                            <li>
+                                <a href="#Configuration" class="js-page-scrolling">Server requirements</a>
+                            </li>
+                            <li>
+                                <a href="#development" class="js-page-scrolling">Development requirements</a>
+                            </li>
+                            <li>
+                                <a href="#howToConfigureLocally" class="js-page-scrolling">How to Configure Locally</a>
+                            </li>
+                            <li>
+                                <a href="#howToConfigureServer" class="js-page-scrolling">How to Configure on Server</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-page-scrolling" href="#layoutOverview">Layout overview</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-page-scrolling" href="#componentOverview">Components</a>
+                        <ul class="sub-list-link-group">
+                            <li>
+                                <a href="#avatars" class="js-page-scrolling">Avatars</a>
+                            </li>
+                            <li>
+                                <a href="#badges-notes" class="js-page-scrolling">Badges &amp; Notes</a>
+                            </li>
+                            <li>
+                                <a href="#button" class="js-page-scrolling">Buttons</a>
+                            </li>
+                            <li>
+                                <a href="#bread-crumb" class="js-page-scrolling">Breadcrumb</a>
+                            </li>
+                            <li>
+                                <a href="#icons" class="js-page-scrolling">Icons</a>
+                            </li>
+                            <li>
+                                <a href="#media-obj" class="js-page-scrolling">Media Object</a>
+                            </li>
+                            <li>
+                                <a href="#modals" class="js-page-scrolling">Modals</a>
+                            </li>
+                            <li>
+                                <a href="#confirmation-modal" class="js-page-scrolling">Confirmation Modal</a>
+                            </li>
+                            <li>
+                                <a href="#formInput" class="js-page-scrolling">Form inputs</a>
+                            </li>
+                            <li>
+                                <a href="#charts" class="js-page-scrolling">Charts</a>
+                            </li>
+                            <li>
+                                <a href="#datatable" class="js-page-scrolling">Datatable</a>
+                            </li>
+                            <li>
+                                <a href="#tabs" class="js-page-scrolling">Tabs</a>
+                            </li>
+
+                            <li>
+                                <a href="#form-wizard" class="js-page-scrolling">Form wizard</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link js-page-scrolling" href="#advancedView">Advanced View</a>
+                        <ul class="sub-list-link-group">
+                            <li>
+                                <a href="#grid-view-table" class="js-page-scrolling">Gridview Datatable</a>
+                            </li>
+                            <li>
+                                <a href="#kanban-view" class="js-page-scrolling">Kanban View </a>
+                            </li>
+                            <li>
+                                <a href="#calendar-view" class="js-page-scrolling">Calendar View </a>
+                            </li>
+                            <li>
+                                <a href="#report-view" class="js-page-scrolling">Report View </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link js-page-scrolling" href="#userRoles">User & Roles</a>
+                        <ul class="sub-list-link-group">
+                            <li>
+                                <a href="#users" class="js-page-scrolling">Users</a>
+                            </li>
+                            <li>
+                                <a href="#roles" class="js-page-scrolling">Roles</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-page-scrolling" href="#settings">Settings</a>
+                        <ul class="sub-list-link-group">
+                            <li>
+                                <a href="#generalSetting" class="js-page-scrolling">General Setting</a>
+                            </li>
+                            <li>
+                                <a href="#emailSetting" class="js-page-scrolling">Email Setting</a>
+                            </li>
+                            <li>
+                                <a href="#smsSetting" class="js-page-scrolling">SMS Setting</a>
+                            </li>
+                            <li>
+                                <a href="#recaptchaSetting" class="js-page-scrolling">ReCAPTCHA Setting</a>
+                            </li>
+                            <li>
+                                <a href="#notificationSetting" class="js-page-scrolling">Notification Setting</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- ****** Hide upgrade until the feature done ****** -->
+                    <!--<li class="nav-item">
+                        <a class="nav-link js-page-scrolling" href="#upgrade">How to upgrade</a>
+                    </li>-->
+                    <li class="nav-item">
+                        <a class="nav-link js-page-scrolling" href="#developmentGuide">Development Guide</a>
+                        <ul class="sub-list-link-group">
+                            <li>
+                                <a href="#requiredPcConfiguration" class="js-page-scrolling"> Environment
+                                    configuration </a>
+                            </li>
+                            <li>
+                                <a href="#addANewPage" class="js-page-scrolling"> Add new page </a>
+                            </li>
+                            <li>
+                                <a href="#changeStyle" class="js-page-scrolling"> Change color & design </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-page-scrolling" href="#top">Back to top</a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+        <section class="main-content">
+            <!--Introduction-->
+            <div id="introduction">
+                <h4>Introduction</h4>
+                <div>
+                    <p>
+                        Readykit is a user friendly admin template with some attractive Vue components.
+                        A lot of time can be saved by using the ready components.
+                        The template is built with HTML, CSS, Bootstrap 4, VueJS and Laravel 8.
+                        The template has almost every component required for designing and developing a web application.
+                    </p>
+                </div>
+            </div>
+
+            <!--Installation-->
+            <div id="Configuration">
+                <h4>Configuration</h4>
+                <h5>Server requirements</h5>
+                <ul>
+                    <li>PHP >= 7.4</li>
+                    <li>OpenSSL PHP Extension</li>
+                    <li>PDO PHP Extension</li>
+                    <li>Mbstring PHP Extension</li>
+                    <li>Tokenizer PHP Extension</li>
+                    <li>XML PHP Extension</li>
+                    <li>Ctype PHP Extension</li>
+                    <li>JSON PHP Extension</li>
+                    <li>ZIP PHP Extension</li>
+                    <li>BCMath PHP Extension</li>
+                </ul>
+            </div>
+
+            <!--Development Requirements-->
+            <div id="development">
+                <h5>Development Requirements</h5>
+                <ul>
+                    <li>Node.js 10+</li>
+                    <li>npm 6+</li>
+                </ul>
+            </div>
+
+            <!--Configuration Process-->
+            <div id="howToConfigureLocally">
+                <h5>How to Configure Locally</h5>
+                <ol>
+                    <li>
+                        You will get two folders.
+                        <ul>
+                            <li>
+                                development
+                            </li>
+                            <li>
+                                documentation
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Go to the development folder, you will find all the development files.
+                    </li>
+                    <li>
+                        Copy all the content from .env.example and then paste it on .env file.
+                    </li>
+                    <li>
+                        Open terminal on the development root folder and write <code>composer install</code> and press enter.
+                    </li>
+                    <li>
+                        After completing the composer installation write <code>php artisan key:generate</code>
+                        and press enter. It will generate <strong>APP_KEY</strong>
+                    </li>
+                    <li>
+                        Configure your database to provide database credentials.
+                        <img src="images/database.png" class="img-thumbnail mb-3" alt="">
+                    </li>
+                    <li>
+                        Run <code>php artisan migrate</code>
+                    </li>
+                    <li>
+                        Run <code>php artisan db:seed</code>
+                    </li>
+                    <li>
+                        Or you can run <code>php artisan migrate:fresh --seed</code> which will run the previous both
+                        commands.
+                    </li>
+                    <li>
+                        After completing the database migration you should run <code>yarn install</code> or
+                        <code>npm install</code> and press enter.
+                    </li>
+                    <li>
+                        Then run <code>yarn watch</code> or <code>npm run watch</code> .
+                    </li>
+                    <li>
+                        Serving Laravel: If you want to use PHP's buit-in development server, you may use the <code>php
+                        artisan serve</code> . By default the HTTP-server will listen to port 8000. You can also
+                        change the port by adding <br><code> --port </code> argument like <code>php artisan serve
+                        --port=8080</code> .
+                    </li>
+                </ol>
+            </div>
+            <div id="howToConfigureServer">
+                <h5>How to Configure on Server</h5>
+                <p>You can see that we are not giving you the vendor &#38; node_modules folder. When you install
+                    laravel via composer you will find the vendor folder. That's why we are giving you this
+                    <code>composer install</code> command. Using this command you will get all the laravel
+                    dependencies. Another command is <code>npm install</code> or <code>yarn install</code> which will
+                    give you node_modules. These are the package dependencies manager.
+                <p>When you want to upload readykit development folder you need to follow all the "How to
+                configure locally" steps. Then make a zip file and upload it on your server. Please folow the the
+                instructions which is given bellow
+                </p>
+                <ol>
+                    <li>
+                        Upload your zip on server and extract it. Like these
+                        <img src="images/zipUpload.png" class="img-thumbnail mb-3" alt="">
+                    </li>
+                    <li>
+                        Create a database on server.
+                    </li>
+                    <li>
+                        Make a database user.
+                    </li>
+                    <li>
+                        Add user to database with all privileges.
+                    </li>
+                    <li>
+                        Configure your database to provide database credentials on <code>.env</code> file.
+                        <img src="images/database.png" class="img-thumbnail mb-3" alt="">
+                    </li>
+                    <li>
+                        Now you need to restructure something. Go to your <code>development/public</code> folder and
+                        select all without <code>mix-manifest.json</code>. Make sure that you are showing all hidden
+                        files.
+                        <img src="images/selectPublicFiles.png" class="img-thumbnail mb-3" alt="">
+                    </li>
+                    <li>
+                        Move all the selected files and folders to your root where your zip extract like <code>
+                        development</code>
+                        <img src="images/movePublicFiles.png" class="img-thumbnail mb-3" alt="">
+                    </li>
+                    <li>
+                        Now you need to edit your <code>index.php</code> file. When you open it you will see
+                        something like these.
+                        <img src="images/indexFile.png" class="img-thumbnail mb-3" alt="">
+                        <br>
+                        We just redirect our require path. Here our require path is <code>development</code>. So we
+                        just change <code>/../</code> to <code>/development/</code> and save. Image given below.
+                        <img src="images/changeIndex.png" class="img-thumbnail mb-3" alt="">
+                    </li>
+                    <li>
+                        Now open your browser new tab and browse your url. Then you will find a migration error
+                        because your database are not migrate yet. In your url bar write <code>/install-demo-data</code>
+                        it will migrate and seed all the data. And also clear all the cache, config,
+                        view etc. Image given bellow.
+                        <img src="images/urlBar.png" class="img-thumbnail mb-3" alt="">
+                        <br>
+                        It will return <code>1</code>. After that delete <code>/install-demo-data</code>
+                        from your url bar and press enter.
+                    </li>
+                    <li>
+                        Final step we need to make <code>symlink</code> with storage folder. Just write <code>/symlink
+                    </code> in url bar.
+                        <img src="images/symlink.png" class="img-thumbnail mb-3" alt="">
+                    </li>
+                </ol>
+            </div>
+
+            <!--Layout Overview-->
+            <div id="layoutOverview">
+                <h5>Layout overview</h5>
+                <p>
+                    The dashboard is mostly designed by Bootstrap. You can find the documentation here <a
+                        href="https://getbootstrap.com/" target="_blank">getbootstrap.com</a><br>
+                    In our <strong>ReadyKit</strong> app we use <code>app-navbar</code> and <code>sidebar</code> component
+                    For layout view. Here the developer guideline for working with sidebar and navbar
+                    <code>resources/js/core/components/layouts/readme.md</code>
+                </p>
+            </div>
+
+            <!--Components Overview-->
+            <div id="componentOverview">
+                <h5>Components overview</h5>
+                <p>
+                    To design a complete application almost all of the necessary components are built here. You can use
+                    your custom design components also for your application.
+                    All the components are built with VueJS.
+                </p>
+            </div>
+
+            <!--Avatars-->
+            <div id="avatars">
+                <h5>Avatars</h5>
+                <p>
+                    To use the component you have to call <code>app-avatar</code>. There many types of image avatar design available.
+                    See the full documentation of this component in the directory
+                    <code>resources/js/core/components/avatars/readme.md</code>.
+                    You can also find groups of avatars documentation here
+                    <code>resources/js/core/components/avatars-group/readme.md</code>
+                </p>
+            </div>
+
+            <!--Badges-->
+            <div id="badges-notes">
+                <h5>Badges &amp; Notes</h5>
+                <p>
+                    There are numbers of badges &amp; notes available here.
+                    To use the badge component you have to call <code>app-badge</code> and note component call <code>app-note</code>
+                    See the full documentation of badge and note component in
+                    <code>resources/js/core/components/badge/readme.md</code>
+                </p>
+            </div>
+
+            <!--Buttons-->
+            <div id="button">
+                <h5>Buttons</h5>
+                <p>
+                    To use the button component you have to call <code>app-button</code>.
+                    See the full documentation of button component in <code>resources/js/core/components/buttons/readme.md</code>
+                </p>
+            </div>
+
+            <!--Breadcrumb-->
+            <div id="bread-crumb">
+                <h5>Breadcrumb</h5>
+                <p>
+                    To use the component you have to call <code>app-breadcrumb</code>.
+                    See the full documentation of this component in the directory
+                    <code>resources/js/core/components/breadcrumb/readme.md</code>
+                </p>
+            </div>
+
+            <!--Icons-->
+            <div id="icons">
+                <h5>Icons</h5>
+                <p>
+                    We used "Feather Icon" in our application. You can see all their icons here <a
+                        href="https://feathericons.com" target="_blank">feathericons.com</a>.
+                    We built a <code>app-icon</code> component to use icon anywhere. You just have to pass the icon
+                    name.
+                    See details documentation of icon component <code>resources/js/core/components/icon/readme.md</code>
+                </p>
+            </div>
+
+            <!--Media Object-->
+            <div id="media-obj">
+                <h5>Media Object</h5>
+                <p>
+                    To use the component you have to call <code>app-media-object</code>.
+                    Contains image title and subtitle. Full uses documentation here
+                    <code>resources/js/core/components/media-object/readme.md</code>.
+                </p>
+            </div>
+
+            <!--Modals-->
+            <div id="modals">
+                <h5>Modals</h5>
+                <p>
+                    For anything confirmation like yes or no with modal. You may call <code>app-confirmation-modal</code>.
+                    See documentation on modal from <code>resources/js/core/components/confirmation-modal/readme.md</code>
+                </p>
+            </div>
+
+            <!--Confirmation Modals-->
+            <div id="confirmation-modal">
+                <h5>Confirmation Modals</h5>
+                <p>
+                    We provide different designed modal for webpage. Using <code>app-modal</code> component you can add
+                    modal to any page.
+                    See documentation on modal from <code>resources/js/core/components/modal/readme.md</code>
+                </p>
+            </div>
+
+            <!--Form Input-->
+            <div id="formInput">
+                <h5>Form Input</h5>
+                <p>
+                    By calling <code>app-input</code> you can add different kind of inputs in a web page.
+                    See details documentation of input here <code>resources/js/core/components/input/readme.md</code>
+                </p>
+            </div>
+
+            <!--charts-->
+            <div id="charts">
+                <h5>Charts</h5>
+                <p>
+                    There we have different type of charts for viewing statistically. we build <code>app-chart</code>
+                    component for this. There have different type of chart available here.
+                    Find the detail documentation on chart from <code>resources/js/core/components/charts/readme.md</code>
+                </p>
+            </div>
+
+            <!--Datatable-->
+            <div id="datatable">
+                <h5>Datatable</h5>
+                <p>
+                    Datatable is one of the premium component of our dashboard. With a lot of filters type you can
+                    easily display and manipulate your data in a table.
+                    Find the detail documentation on datatable from <code>resources/js/core/components/datatable/readme.md</code>
+                </p>
+            </div>
+
+            <!--Tabs-->
+            <div id="tabs">
+                <h5>Tabs</h5>
+                <p>
+                    We provide both horizontal and vertical tab design for application.
+                    See full <code>app-tab</code> component documentation from <code>resources/js/core/components/tabs/readme.md</code>
+                </p>
+            </div>
+
+            <!--Form wizards-->
+            <div id="form-wizard">
+                <h5>Form wizard</h5>
+                <p>
+                    We provide form wizard design for application. It will help you to give permission to others tabs.
+                    See full <code>app-form-wizard</code> component documentation from <code>resources/js/core/components/form-wizard/readme.md</code>
+                </p>
+            </div>
+            <img src="images/form-wizard.PNG" class="img-thumbnail mb-3" alt="">
+
+
+            <!--Advanced View-->
+
+            <div id="advancedView">
+                <h3 class="bd-title mb-3">Advanced view</h3>
+                <div class="item-diver" id="grid-view-table"></div>
+                <h5 class="bd-subtitle">
+                    Gridview Datatable
+                </h5>
+                <ol>
+                    <li>
+                        First you should use <code>app-table</code> component.
+                    </li>
+                    <li>
+                        Then we should send <code> cardView = true </code> in options of datatable component.
+                    </li>
+                    <li>
+                        And then send <code> componentName = 'YourComponentName' </code> in options which is
+                        your desire card. where you can inject your own design.
+                    </li>
+                    <li>
+                        please check the usages in <code>resources/js/app/components/views/Demo/tables/grid-view</code>
+                    </li>
+                    <li>
+                        List view
+                        <img src="images/app/list-view-table.PNG" class="img-thumbnail mb-3" alt="">
+                    </li>
+                    <li>
+                        Grid view
+                        <img src="images/app/grid-view.PNG" class="img-thumbnail mb-3" alt="">
+                    </li>
+
+                </ol>
+
+                <div class="item-diver" id="kanban-view"></div>
+                <h5 class="bd-subtitle">
+                    Kanban View
+                </h5>
+                <ol>
+                    <li>
+                        In this view you can manage staging and pipelines like task management.
+                    </li>
+                    <li>
+                        Add update delete tasks and can modified kanban view with your choice.
+                    </li>
+                    <li>
+                        please check the usages in <code>resources/js/app/components/views/Demo/Pages/kanban-view</code>
+                    </li>
+                </ol>
+                <img src="images/app/kanban-view.PNG" class="img-thumbnail mb-3" alt="">
+
+                <div class="item-diver" id="calendar-view"></div>
+                <h5 class="bd-subtitle">
+                    Calendar View
+                </h5>
+                <ol>
+                    <li>
+                        In this view you can manage event, schedule, calendar (add, update, delete).
+                    </li>
+                    <li>
+                        please check the usages in <code>resources/js/app/components/views/Demo/Pages/calendar-view</code>
+                    </li>
+                </ol>
+                <img src="images/app/calendar-view.PNG" class="img-thumbnail mb-3" alt="">
+
+                <div class="item-diver" id="report-view"></div>
+                <h5 class="bd-subtitle">
+                    Report
+                </h5>
+                <ol>
+                    <li>
+                        There is a demo example by how you can show reports.
+                    </li>
+                    <li>
+                        please check the usages in <code>resources/js/app/components/views/Demo/Pages/Report.vue</code>
+                    </li>
+                </ol>
+                <img src="images/app/report-view.PNG" class="img-thumbnail mb-3" alt="">
+            </div>
+
+            <!--User & Roles-->
+            <div id="userRoles">
+                <h4>User & Roles</h4>
+                <p>
+                    <b>Users</b> and <b>Roles</b> management is an important feature for any application. You may need different types of
+                    <b>Roles</b>
+                    for <b>Users</b>. For that you have to create roles as you required and gives them permission to
+                    access.
+                </p>
+                <img src="images/user-and-roles.PNG" class="img-thumbnail mb-3" alt="">
+
+                <div id="users">
+                    <h5>Users</h5>
+                    <ul>
+                        <li>
+                            Click on <strong>Invite User</strong>, It will open a modal which requires <strong>User Email</strong> and
+                            <strong>Roles</strong> that will assigned
+                            to that user. Invited user will get an confirmation email with a link. That link will redirect
+                            to a page where user can set their basic information.
+                            <img src="images/invite-user.PNG" class="img-thumbnail mb-3" alt="">
+                        </li>
+                        <li>
+                            In <strong>Users</strong> table you can search by user's 'first name', 'last name' and user's 'email'. And also
+                            can filtered by
+                            'Active', 'Inactive', 'Invited'.
+                        </li>
+                        <li>
+                            There are some options in users table action buttons. These options are 'Edit', 'Delete', 'De-activate',
+                            'Active',
+                            'Manage Role'. For invited users 'De-activate', 'Active', options will not be available.
+                            <img src="images/app/user_actions.png" class="img-thumbnail mb-3" alt="">
+                        </li>
+                        <li>
+                            Pressing on 'Edit' button a modal will come and here you can change user's first name nad last name.
+                            <img src="images/app/edit_user.png" class="img-thumbnail mb-3" alt="">
+                        </li>
+                        <li>
+                            You can manage roles of any user by clicking on <strong>'Manage Role'</strong> of that specific
+                            user from "Action" column.
+                            <img src="images/app/manage_role.png" class="img-thumbnail mb-3" alt="">
+                        </li>
+                    </ul>
+                </div>
+                <div id="roles">
+                    <h5>Roles</h5>
+                    <ul>
+                        <li>
+                            Click on <strong>Add Role</strong>, It will open a modal which requires Role name and
+                            permissions for that role
+                            <img src="images/add-role.PNG" class="img-thumbnail mb-3" alt="">
+                        </li>
+                        <li>
+                            You can manage users of any role by clicking on <strong>'Manage Users'</strong> of that specific
+                            role from "Action" column.
+                            <img src="images/app/manage_users.PNG" class="img-thumbnail mb-3" alt="">
+                        </li>
+                        <li>
+                            You can manage permissions of any role by clicking on 'Manage' of that specific role from
+                            "Permission" column also.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--Settings-->
+            <div id="settings">
+                <h4>Settings</h4>
+                <p>
+                    We provide some basic settings in our application which will faster your development
+                </p>
+            </div>
+
+            <!--General Setting-->
+            <div id="generalSetting">
+                <h5>General Settings</h5>
+                <p>Go to "Settings" > "General Setting"</p>
+                <ul>
+                    <li>
+                        In this setting you can set your company name.
+                    </li>
+                    <li>
+                        You can upload company logo, icon and banner.
+                    </li>
+                    <li>
+                        Change suitable Language for application.
+                    </li>
+                    <li>
+                        Set Date and Time format and Timezone the way you want to see date/time in your application .
+                    </li>
+                    <li>
+                        Decimal separator, Thousand separator, Number of decimal also can be set.
+                    </li>
+                </ul>
+                <img src="images/settings/general-setting.PNG" class="img-thumbnail mb-3" alt="">
+            </div>
+
+            <!--Email Setting-->
+            <div id="emailSetting">
+                <h5>Email Settings</h5>
+                <p>Go to "Settings" > "Email Setting"</p>
+                <p>From this setting you can set your email delivery for your application</p>
+                <p>We provide 6 supported mail services for set email</p>
+                <ol>
+                    <li>
+                        <h6 class="font-weight-bold">Amazon SES</h6>
+                        <p>
+                            Amazon SES needed Api Region, Access Key, Secret Access key, Host name, From name and From email to set up.
+                        </p>
+                        <img src="images/settings/email-setting-amazon-ses.PNG" class="img-thumbnail mb-3" alt="">
+                        <p>Follow <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domain-procedure.html"
+                                     target="_blank">this link</a> to know how you can verify the email address</p>
+
+                    </li>
+                    <li>
+                        <h6 class="font-weight-bold">Mailgun</h6>
+                        <p>
+                            To set up Mailgun you will need a Domain name (<a
+                                href="https://help.mailgun.com/hc/en-us/articles/202256730-How-do-I-pick-a-domain-name-for-my-Mailgun-account-"
+                                target="_blank">Here</a> is how you can add domain in mailgun), API key, From name, and From email.
+                        </p>
+                        <img src="images/settings/email-setting-mailgun.PNG" class="img-thumbnail mb-3" alt="">
+                    </li>
+                    <li>
+                        <h6 class="font-weight-bold">SMTP</h6>
+                        <img src="images/settings/email-setting-smtp.PNG" class="img-thumbnail mb-3" alt="">
+                        <p>
+                            To set SMTP mail service provider you need to set smtp host, Port, Password to access from
+                            the email sent and a encryption type,
+                            <code>N.B: Don't forget to enable less secure app permission in the email which you sent
+                                from.</code>
+                        </p>
+                    </li>
+                    <li>
+                        <h6 class="font-weight-bold">Sendmail</h6>
+                        <img src="images/settings/email-setting-sendmail.PNG" class="img-thumbnail mb-3" alt="">
+                        <p>
+                            Sendmail needs a host name, port, username and password to access to the mail.
+                        </p>
+                    </li>
+                </ol>
+            </div>
+
+            <!--SMS Setting-->
+            <div id="smsSetting">
+                <h5>SMS Settings</h5>
+                <p>Go to "Settings" > "SMS Setting"</p>
+                <img src="images/settings/sms-setting.PNG" class="img-thumbnail mb-3" alt="">
+                <p>This setting will help you to send SMS to your application user</p>
+                <p>We use Nexmo for sending SMS. See Nexmo documentation from <a
+                        href="https://developer.nexmo.com/messaging/sms/overview" target="_blank">here</a></p>
+            </div>
+
+            <!--ReCAPTCHA Setting-->
+            <div id="recaptchaSetting">
+                <h5>ReCAPTCHA Settings</h5>
+                <p>Go to "Settings" > "ReCAPTCHA Setting"</p>
+                <img src="images/settings/recaptcha-setting.PNG" class="img-thumbnail mb-3" alt="">
+                <p>To enable reCaptcha in authentication you have to enter your site key and secret key from google</p>
+                <p>See documentation from here <a href="https://www.google.com/recaptcha/admin/create" target="_blank">here</a></p>
+            </div>
+
+            <!--Notification Setting-->
+            <div id="notificationSetting">
+                <h5>Notification Settings</h5>
+                <p>Go to "Settings" > "Notification Setting"</p>
+                <p>
+                    You can update settings from here and Also can update the template of notification. You have the
+                    following option in notification setting:
+                </p>
+                <ul>
+                    <li>You can set channels where the notification will send.</li>
+                    <li>You can set choose users who will be notified on selected event.</li>
+                    <li>You can set choose roles to set these audiences under that roles to get notified.</li>
+                    <li>You can set up the template for the notification.</li>
+                </ul>
+                <img src="images/settings/notification-channel-setting.PNG" class="img-thumbnail mb-3" alt="">
+            </div>
+
+            <!-- ****** Hide upgrade until the feature done ****** -->
+            <!--Update Version-->
+            <!--<div id="upgrade">
+                <h3 class="bd-title"> How to upgrade </h3>
+                <ol>
+                    <li>
+                        From app level Go to "Settings">"Updates".
+                    </li>
+                    <li>
+                        You can see the next upgrade able version of your application as (if any new
+                        upgradable version is available).
+                    </li>
+                    <li>
+                        Just click the new version to upgrade your application.
+                    </li>
+                </ol>
+            </div>-->
+
+            <!--Development Guide-->
+            <div id="developmentGuide">
+                <h3 class="bd-title mb-3">Development Guide</h3>
+                <div class="item-diver" id="requiredPcConfiguration"></div>
+                <h5 class="bd-subtitle">Environment configuration</h5>
+                <ol>
+                    <li>
+                        Open your project on an editor. Open terminal and run "npm i". Make sure that Nodejs is
+                        installed on your PC. If Nodejs is not installed on your PC <a
+                            href="https://nodejs.org/en/download/" target="_blank">Click here</a> to download and
+                        install Nodejs.
+                    </li>
+                    <li>
+                        After successfully installed node_modules, To change something in vue component you need to go
+                        through the following steps - <br>
+                        <strong>Steps : </strong> Go to resource/assets/js/component (You will find all the component
+                        here with specific folder) > Change something in vue component > run "npm run watch" command
+                        from terminal (You must have Nodejs install first) > Refresh browser to see the change
+                    </li>
+                </ol>
+
+                <div class="item-diver" id="addANewPage"></div>
+                <h5 class="bd-subtitle">Add a new page</h5>
+                <ol>
+                    <li>
+                        For app level, Go to "resources/views/application/views/" directory of the project. For brand
+                        level, Go to "resources/views/brands/" directory.
+                    </li>
+                    <li>
+                        Create a directory and name it similar to your feature.
+                    </li>
+                    <li>
+                        Add a new blade file with the following code. Make sure to change "default
+                        .preferred_title_of_this_page" to your page title which is added in default.php of your
+                        language file and change the "app-component-name" to your component name related to feature.
+                        (component create process described below)
+                        for app level use <b>@extends('layout.app')</b>,
+                        for brand level use <b>@extends('layout.brand')</b>
+                        <img src="images/dev/adding_app_page.png" alt="adding_app_page
+                                    .png" class="img-thumbnail d-block mx-auto my-3"/><br><br>
+                    </li>
+                    <li>
+                        Go to "app/Http/Controllers/" make a directory similar to your feature name. Create a
+                        controller class like "YourFeatureNameController", which is extends
+                        "App\Http\Controllers\Controller". create a function that returns view of the page you
+                        created before.
+                        <br>Like for example:
+                        <img src="images/dev/create_controller.png"
+                             class="img-thumbnail d-block mx-auto my-3">
+                    </li>
+                    <li>
+                        Go to "routes/" directory, check route files and subdirectories. You can create a .php file
+                        or you also can add in existing file which is similar to your feature. and create a route for
+                        your page like that-
+                        <img src="images/dev/create_a_route.png"
+                             class="img-thumbnail d-block mx-auto my-3">
+                    </li>
+                    <li>
+                        Now go to "resource/assets/js/app/Component/Views" directory. make a directory related to your
+                        feature.
+                    </li>
+                    <li>
+                        Add a new .vue file. Like for example-
+                        <img src="images/dev/component_create.png"
+                             class="img-thumbnail d-block mx-auto my-3">
+                        Write your desired HTML code inside the component.
+                    </li>
+                    <li>
+                        Go to "resource/assets/js/app/appComponent.js" file and register your vue component
+                        <img
+                                src="images/dev/register_component.png"
+                                class="img-thumbnail d-block mx-auto my-3">
+                        Save your changes. Make sure that your component is compiling successfully.
+                    </li>
+                    <li>
+                        Now hit your route in the browser and see the new page.
+                    </li>
+                </ol>
+
+
+                <div class="doc-content-item greeting-content mb-5 pt-0">
+                    Thank you for using ReadyKits!<br>
+                    For any kind of help or support, feel free to contact by visiting our profile page.
+                </div>
+
+                <!--Right blank panel-->
+                <div class="d-xl-block col-xl-2"></div>
+            </div>
+        </section>
+    </div>
+</main>
+
+
+<!-- Bootstrap core JavaScript -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.3/js/bootstrap.min.js"></script>
+<script src='js/shCore.js' type='text/javascript'></script>
+<script src='js/shAutoloader.js' type='text/javascript'></script>
+<script src='js/shBrushXml.js' type='text/javascript'></script>
+<script src='js/shBrushJScript.js' type='text/javascript'></script>
+<script src='js/shBrushCss.js' type='text/javascript'></script>
+<script type="text/javascript">
+    SyntaxHighlighter.all();
+
+    $(document).ready(function () {
+
+        //Page animation
+        $(".js-page-scrolling").click(function (e) {
+            var $elementTarget = $(e.target),
+                $scrollingTarget = $($elementTarget.attr("href")),
+                scrollingPosition = 0;
+
+
+            if ($scrollingTarget !== "#top") scrollingPosition = $scrollingTarget.offset().top - 138;
+            else return false;
+
+            $("html, body").animate({scrollTop: scrollingPosition}, 500);
+        });
+
+        //See more data
+        $(".js-see-more-less").click(function (e) {
+            var $selector = $(e.target),
+                $target = $selector.closest(".js-see-more-parent").find(".js-class-container");
+
+            if ($target.hasClass("see-less")) {
+                $target.addClass("see-more").removeClass("see-less");
+                $selector.html("See less");
+            } else {
+                $target.addClass("see-less").removeClass("see-more");
+                $selector.html("See more");
+            }
+        })
+    });
+</script>
+</body>
+</html>

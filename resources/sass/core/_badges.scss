@@ -1,0 +1,85 @@
+@import "variables";
+@import "theme-colors";
+
+/*Badges*/
+.badge {
+  color: $white;
+  font-weight: 500;
+  padding: 0.65em 0.95em;
+
+  &.badge-sm {
+    padding: .45em .7em;
+  }
+
+  &.badge-lg {
+    padding: .85em 1.1em;
+  }
+
+  &.badge-circle {
+    border-radius: 100%;
+  }
+
+  &.badge-purple {
+    background-color: $light-purple;
+  }
+
+  &.badge-warning {
+    background-color: $warning-color;
+  }
+
+  &.badge-danger {
+    background-color: $danger-color;
+  }
+
+  &.badge-light {
+    color: var(--default-font-color);
+    background-color: var(--base-color);
+  }
+}
+
+.badge-pill {
+  border-radius: 11rem !important;
+}
+
+/*Notes*/
+.note-title {
+  svg {
+    color: $yellow;
+    height: 20px;
+    width: 20px;
+  }
+}
+
+.note {
+  border-radius: $default-radius;
+
+  &.note-warning {
+    background-color: var(--note-bg-color);
+    color: $sidebar-dark-menu-color !important;
+  }
+
+  &.note-blue {
+    color: var(--note-font-color);
+    background-color: $note-bg-blue-color;
+  }
+
+  &.note-red {
+    color: var(--note-font-color);
+    background-color: $note-bg-red-color;
+  }
+
+  &.note-purple {
+    color: var(--note-font-color);
+    background-color: $note-bg-purple-color;
+  }
+
+  &.note-success {
+    color: var(--note-font-color);
+    background-color: $note-bg-success-color;
+  }
+
+  &.note-info {
+    color: var(--note-font-color);
+    background-color: $note-bg-info-color;
+  }
+}

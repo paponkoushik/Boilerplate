@@ -1,0 +1,147 @@
+name: Deploy to DEV
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  Deployment:
+    name: Deploy Action
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+
+      - uses: actions/checkout@v2.1.0
+        with:
+          fetch-depth: 2
+
+      - name: Create .env file 📌
+        run: |
+          php -r "file_exists('.env') || copy('.env.ci', '.env');"
+          sed -i "/APP_URL/c APP_URL=http://readykit.dev.gainhq.com" .env
+          sed -i "/DB_DATABASE/c DB_DATABASE=${{ secrets.DEV_DB_DATABASE }}" .env
+          sed -i "/DB_USERNAME/c DB_USERNAME=${{ secrets.DEV_DB_USERNAME }}" .env
+          sed -i "/DB_PASSWORD/c DB_PASSWORD=${{ secrets.DEV_DB_PASSWORD }}" .env
+          sed -i "/DEPLOYMENT_KEY/c DEPLOYMENT_KEY=${{ secrets.DEV_DEPLOYMENT_KEY }}" .env
+          sed -i "/PREPARE_RELEASE_FILES/c PREPARE_RELEASE_FILES=false" .env
+          echo "!.env" > .git-ftp-include
+
+
+      - name: Cache Composer dependencies 🗑
+        uses: actions/cache@v1
+        with:
+          path: ~/.composer/cache/files
+          key: dependencies-composer-${{ hashFiles('composer.json') }}
+
+      - name: Install Composer dependencies 🤞
+        run: |
+          rm composer.lock
+          composer install
+
+      - name: Generate Application Key 🔑
+        run: php artisan key:generate
+
+      - name: Cache Yarn
+        id: yarn-cache
+        uses: actions/cache@v2.1.3
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Yarn Install
+        run: yarn install
+
+      - name: Building Assets
+        run: yarn run dev
+
+      - name: Archiving Repository 🤐
+        run: zip -r $GITHUB_RUN_ID.zip ./ -x ".git/*" -x ".github/*" -x "node_modules/*"
+
+      - name: Remove Files except archive 🧹
+        run: |
+          shopt -s extglob
+          rm -rf !("$GITHUB_RUN_ID.zip")
+          find -path './.*' -delete
+          echo "!$GITHUB_RUN_ID.zip" >> .git-ftp-include
+
+      - name: Create unzipper script 🔏
+        run: |
+          echo "<?php
+              \$key = trim(\$_REQUEST['key']);
+              if (!\$key) {
+                die('Key is not valid!');
+              }
+
+              if(\$key != '${{ secrets.DEV_DEPLOYMENT_KEY }}') {
+                die('Deployment key not matched!');
+              }
+
+              \$dir = \"./\";
+               \$di = new RecursiveDirectoryIterator(\$dir, FilesystemIterator::SKIP_DOTS);
+               \$ri = new RecursiveIteratorIterator(\$di, RecursiveIteratorIterator::CHILD_FIRST);
+               foreach ( \$ri as \$file ) {
+                 \$allowed = [\"$GITHUB_RUN_ID.zip\", \"$GITHUB_RUN_ID.php\"];
+                 if(!in_array(\$file->getBasename(), \$allowed)) {
+                   \$file->isDir() ?  rmdir(\$file) : unlink(\$file);
+                 }
+               }
+
+              \$zip = new ZipArchive;
+              if (\$zip->open(\"$GITHUB_RUN_ID.zip\") === TRUE) {
+                \$zip->extractTo('./');
+                \$zip->close();
+                echo \"$GITHUB_RUN_ID.zip extracted 🍻 \r\n \";
+                if(unlink(\"$GITHUB_RUN_ID.zip\")) {
+                  echo \"$GITHUB_RUN_ID.zip deleted 🍦 \r\n \";
+                }
+                if(unlink(\"$GITHUB_RUN_ID.php\")) {
+                  echo \"$GITHUB_RUN_ID.php deleted itself! 🤏 \r\n \";
+                }
+              }
+              else {
+                echo 'failed!';
+              }
+          ?>" > $GITHUB_RUN_ID.php
+
+          echo "!$GITHUB_RUN_ID.php" >> .git-ftp-include
+
+      - name: Adding untracked files 🙌
+        run: |
+          git init
+          git add .
+          git config --global user.name "an11k"
+          git config --global user.email "anik@gain.media"
+          git commit -m 'Commit From Deploy!'
+
+      - name: FTP Deploy 💸
+        uses: SamKirkland/FTP-Deploy-Action@3.1.1
+        with:
+          ftp-server: ftp://${{ secrets.DEV_FTP_SERVER }}
+          ftp-username: ${{ secrets.DEV_FTP_USERNAME }}
+          ftp-password: ${{ secrets.DEV_FTP_PASSWORD }}
+
+
+      - name: Extract deployed files 🥥
+        uses: wei/curl@master
+        with:
+          args: http://readykit.dev.gainhq.com/original/$GITHUB_RUN_ID.php?key=${{ secrets.DEV_DEPLOYMENT_KEY }}
+
+      - name: Move deployed files 🍻
+        uses: wei/curl@master
+        with:
+          args: http://readykit.dev.gainhq.com/original/deploy.php?key=${{ secrets.DEV_DEPLOYMENT_KEY }}
+
+  Notify-Slack:
+    if: ${{ always() }}
+    needs: [ Deployment ]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ahmadnassri/action-slack-workflow-notifications@v1
+        with:
+          slack-webhook: ${{ secrets.SLACK_WEBHOOK_URL }}
+          ignore-jobs: Notify-Slack
