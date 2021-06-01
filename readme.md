@@ -1,4 +1,4 @@
-## Readykit Apps
+## Boilerplate
 
 ### Introduction 
 
