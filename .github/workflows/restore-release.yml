@@ -1,15 +1,15 @@
-name: Reset Release Action
+# name: Reset Release Action
 
-on:
-  schedule:
-    - cron: "0 */6 * * *"
+# on:
+#   schedule:
+#     - cron: "0 */6 * * *"
 
-jobs:
-  Restore:
-    name: Restore Files
-    runs-on: ubuntu-latest
-    steps:
-      - name: Move deployed files 🍻
-        uses: wei/curl@master
-        with:
-          args: https://readykit.gainhq.com/original/deploy.php?key=${{ secrets.RELEASE_DEPLOYMENT_KEY }}
+# jobs:
+#   Restore:
+#     name: Restore Files
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Move deployed files 🍻
+#         uses: wei/curl@master
+#         with:
+#           args: https://readykit.gainhq.com/original/deploy.php?key=${{ secrets.RELEASE_DEPLOYMENT_KEY }}
